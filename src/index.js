@@ -10,13 +10,14 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#0a0506',
+      contrastText: '#fff',
     },
     secondary: {
       main: '#dc232e',
+      contrastText: '#fff',
     },
   },
 });
-
 
 ReactDOM.render(
   <React.StrictMode>
