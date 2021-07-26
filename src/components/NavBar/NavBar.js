@@ -4,17 +4,17 @@ import {
   Toolbar,
   Button,
   makeStyles,
-  Typography,
   Drawer,
   List,
   Divider,
   ListItem,
   ListItemText,
-  Hidden
+  Hidden,
+  Box
 } from '@material-ui/core';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-
 import MenuIcon from '@material-ui/icons/Menu';
+import Logo from './logo.png'
 
 import clsx from 'clsx';
 
@@ -63,6 +63,9 @@ const NavBar = (props) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
+        <ListItem >
+          <ListItemText> <img src={Logo} height="80" alt="" /> </ListItemText>
+        </ListItem>
         <ListItem button>
           <ListItemText> MI CUENTA </ListItemText>
         </ListItem>
@@ -75,9 +78,11 @@ const NavBar = (props) => {
       </List>
       <Divider />
       <List>
-        <Button variant="contained" color="secondary">
-          <ShoppingCartOutlinedIcon />
-        </Button>
+        <Box display="flex" justifyContent="center">
+          <Button variant="contained" color="secondary">
+            <ShoppingCartOutlinedIcon />
+          </Button>
+        </Box>
       </List>
     </div>
   );
@@ -85,36 +90,43 @@ const NavBar = (props) => {
   return (
     <>
       <AppBar position="fixed" color="primary">
-        <Toolbar >
-          <Typography className={classes.title}>
-            Logo
-          </Typography>
-          <Hidden smDown>
-            <Button variant="text" color="inherit">
-              Mi cuenta
-            </Button>
-            <Button variant="text" color="inherit">
-              Categorías
-            </Button>
-            <Button variant="text" color="inherit">
-              Contacto
-            </Button>
-            <Button variant="contained" color="secondary">
-              <ShoppingCartOutlinedIcon />
-            </Button>
-          </Hidden>
-          <Hidden mdUp>
+        <Toolbar>
+          <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
+
+            <img src={Logo} height="80" alt="" />
+
             <div>
-              {['left'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                  <Button className={classes.textWhite} onClick={toggleDrawer(anchor, true)}><MenuIcon /></Button>
-                  <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                    {list(anchor)}
-                  </Drawer>
-                </React.Fragment>
-              ))}
+              <Hidden smDown>
+                <Button variant="text" color="inherit">
+                  Mi cuenta
+                </Button>
+                <Button variant="text" color="inherit">
+                  Categorías
+                </Button>
+                <Button variant="text" color="inherit">
+                  Contacto
+                </Button>
+                <Button variant="contained" color="secondary">
+                  <ShoppingCartOutlinedIcon />
+                </Button>
+              </Hidden>
+
+              <Hidden mdUp>
+                <div>
+                  {['left'].map((anchor) => (
+                    <React.Fragment key={anchor}>
+                      <Button className={classes.textWhite} onClick={toggleDrawer(anchor, true)}><MenuIcon /></Button>
+                      <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                        {list(anchor)}
+                      </Drawer>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </Hidden>
             </div>
-          </Hidden>
+
+          </Box>
+
         </Toolbar>
       </AppBar>
       <div className={classes.offset} />
