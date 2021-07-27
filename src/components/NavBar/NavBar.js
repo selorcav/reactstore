@@ -12,13 +12,11 @@ import {
   Hidden,
   Box
 } from '@material-ui/core';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import Logo from './logo.png'
 
 import clsx from 'clsx';
-
-
+import CartWidget from './CartWidget';
 
 const useStyles = makeStyles(theme => ({
   offset: theme.mixins.toolbar,
@@ -39,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const NavBar = (props) => {
+const NavBar = () => {
   const classes = useStyles()
   const [state, setState] = React.useState({
     left: false,
@@ -79,9 +77,7 @@ const NavBar = (props) => {
       <Divider />
       <List>
         <Box display="flex" justifyContent="center">
-          <Button variant="contained" color="secondary">
-            <ShoppingCartOutlinedIcon />
-          </Button>
+          <CartWidget />
         </Box>
       </List>
     </div>
@@ -106,9 +102,7 @@ const NavBar = (props) => {
                 <Button variant="text" color="inherit">
                   Contacto
                 </Button>
-                <Button variant="contained" color="secondary">
-                  <ShoppingCartOutlinedIcon />
-                </Button>
+                <CartWidget />
               </Hidden>
 
               <Hidden mdUp>

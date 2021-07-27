@@ -1,15 +1,11 @@
+import ItemListContainer from './components/ItemListContainer.js'
 import NavBar from './components/NavBar/NavBar.js' 
-
-
-import {Container} from '@material-ui/core/';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Container>
-        <h2>Las ofertas de la semana</h2>
-      </Container>      
+      <ItemListContainer greeting="mensaje desde el app.js"/>
     </div>
   );
 }
