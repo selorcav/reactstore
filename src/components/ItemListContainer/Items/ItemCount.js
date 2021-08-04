@@ -44,7 +44,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <Grid className={classes.marginTop} container item xs={12} sm={6} md={3} spacing={12}>
+      <Grid className={classes.marginTop} container item xs={12} sm={6} md={3} >
         <Card>
           <CardContent>
             <Typography variant="h6" color="primary">Contador actual: </Typography>
