@@ -1,7 +1,5 @@
 import { React, useEffect, useState} from 'react'
-
-import { Container, Typography, Grid } from '@material-ui/core/';
-import ItemCount from './Items/ItemCount';
+import { Container, Typography } from '@material-ui/core/';
 import ItemList from './ItemList';
 
 import {productos} from "./Items/productos"
@@ -28,10 +26,6 @@ const ItemListContainer = (props) => {
       <Container>
         <Typography variant="h3" color="primary">Las ofertas de la semana</Typography>
         <Typography color="secondary">{props.greeting}</Typography>
-        <Grid container spacing={1}>
-          <ItemCount stock={5} initial={1} onAdd={0} />
-          <ItemCount stock={10} initial={3} onAdd={0} />
-        </Grid>
         <ItemList products={products}  />
       </Container>
     </div>

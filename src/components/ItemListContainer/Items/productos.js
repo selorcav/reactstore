@@ -6,11 +6,15 @@ export const productos = [
     title: "Sail", 
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, itaque?", 
     price: 5990000, 
-    pictureUrl: "/static/media/sail.c508fd12.jpg"  },
+    pictureUrl: "./img/sail.jpg",
+    stock: 10
+  },
   { id: 456, 
     brand: "Chery", 
     title: "Arrizo 3", 
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, itaque?", 
     price: 7190000, 
-    pictureUrl: "/static/media/arrizo.08be4b65.jpg" },
+    pictureUrl: "./img/arrizo.jpg",
+    stock: 5
+  },
 ]

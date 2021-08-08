@@ -7,7 +7,7 @@ const ItemList = ({products}) => {
   
   return (
     <>
-      <Typography variant="h3" color="secondary">Item List</Typography>
+      <Typography variant="h4" color="secondary">Item List</Typography>
       <Grid container spacing={1} >
       {products.map(products=>{
         return <Item product={products} key={products.id}/>

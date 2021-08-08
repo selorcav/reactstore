@@ -1,5 +1,7 @@
 import React from 'react'
 import { Grid, Typography, makeStyles, Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core/';
+import ItemCount from './ItemCount';
+
 
 const useStyles = makeStyles(theme => ({
   marginTop: {
@@ -16,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 
 const Item = ({ product }) => {
   const classes = useStyles()
-  console.log({ product })
   return (
     <Grid className={classes.marginTop} container item xs={12} sm={6} md={3} >
       <Card className={classes.root}>
@@ -30,6 +31,7 @@ const Item = ({ product }) => {
           <Typography variant="h4" color="primary">{product.title}</Typography>
           <Typography variant="body1" gutterBottom>{product.description}</Typography>
           <Typography variant="h4" gutterBottom><Typography variant="body2" color="secondary">Precio:</Typography> ${product.price}</Typography>
+          <ItemCount stock={product.stock} initial={0} onAdd={0}/>
         </CardContent>
       </Card>
     </Grid>
