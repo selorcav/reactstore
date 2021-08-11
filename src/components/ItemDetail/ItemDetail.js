@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import ItemCount from '../ItemListContainer/Items/ItemCount';
 
+
 const useStyles = makeStyles(theme => ({
   cardImage: {
     height: '300px'

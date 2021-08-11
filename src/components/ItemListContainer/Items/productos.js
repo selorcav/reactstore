@@ -6,7 +6,7 @@ export const productos = [
     title: "Sail", 
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, itaque?", 
     price: 5990000, 
-    pictureUrl: "./img/sail.jpg",
+    pictureUrl: "https://i.imgur.com/K9PQDCH.jpg",
     stock: 10
   },
   { id: 456, 
@@ -14,7 +14,7 @@ export const productos = [
     title: "Arrizo 3", 
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, itaque?", 
     price: 7190000, 
-    pictureUrl: "./img/arrizo.jpg",
+    pictureUrl: "https://i.imgur.com/xQvBkSr.jpg",
     stock: 5
   },
 ]

@@ -18,6 +18,8 @@ import Logo from './logo.png'
 import clsx from 'clsx';
 import CartWidget from './CartWidget';
 
+import { Link } from 'react-router-dom';
+
 const useStyles = makeStyles(theme => ({
   offset: theme.mixins.toolbar,
   title: {
@@ -62,13 +64,16 @@ const NavBar = () => {
     >
       <List>
         <ListItem >
-          <ListItemText> <img src={Logo} height="80" alt="" /> </ListItemText>
+          <ListItemText> <Link to={"/"}><img src={Logo} height="80" alt="" /></Link> </ListItemText>
         </ListItem>
         <ListItem button>
-          <ListItemText> MI CUENTA </ListItemText>
+          <ListItemText>MI CUENTA</ListItemText>
         </ListItem>
         <ListItem button>
-          <ListItemText> CATEGORIAS </ListItemText>
+          <ListItemText> <Link to={"/category/1"}>CATEGORIA-1</Link> </ListItemText>
+        </ListItem>
+        <ListItem button>
+          <ListItemText> <Link to={"/category/1"}>CATEGORIA-2</Link> </ListItemText>
         </ListItem>
         <ListItem button>
           <ListItemText> CONTACTO </ListItemText>
@@ -89,7 +94,7 @@ const NavBar = () => {
         <Toolbar>
           <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
 
-            <img src={Logo} height="80" alt="" />
+            <Link to={"/"}><img src={Logo} height="80" alt="" /></Link>
 
             <div>
               <Hidden smDown>
@@ -97,7 +102,10 @@ const NavBar = () => {
                   Mi cuenta
                 </Button>
                 <Button variant="text" color="inherit">
-                  Categorías
+                  <Link to={"/category/1"}>Categoría-1</Link>
+                </Button>
+                <Button variant="text" color="inherit">
+                  <Link to={"/category/2"}>Categoría-2</Link>
                 </Button>
                 <Button variant="text" color="inherit">
                   Contacto

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Typography, makeStyles, Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core/';
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,9 +23,9 @@ const Item = ({ product }) => {
     <Grid className={classes.marginTop} container item xs={12} sm={6} md={3} >
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia className={classes.media}
+        <Link to={`/item/${product.id}`}><CardMedia className={classes.media}
             image={product.pictureUrl}
-          />
+          /></Link>
         </CardActionArea>
         <CardContent>
           <Typography variant="h6" color="secondary">{product.brand}</Typography>
