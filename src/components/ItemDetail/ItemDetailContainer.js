@@ -6,8 +6,6 @@ import {productos} from "../ItemListContainer/Items/productos"
 import {useParams} from "react-router-dom"
 
 
-
-
 const ItemDetailContainer = () => {
 
 
@@ -29,8 +27,8 @@ const ItemDetailContainer = () => {
     getItems.then((productos)=>{
       return setProducts(productos)
     })
-    console.log(params.id)
-  })
+    // console.log(params.id)
+  }, [params.id])
 
   return (
     <Container >
