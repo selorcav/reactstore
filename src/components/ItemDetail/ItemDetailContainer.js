@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
       setTimeout(()=>{
         // resolve(productos)
         if(params.id){
-          resolve(productos.filter(p=>p.id == params.id) )
+          resolve(productos.filter(p=>p.id === parseInt(params.id)) )
         }else{
           resolve(productos)
         }

@@ -82,7 +82,7 @@ const NavBar = () => {
       <Divider />
       <List>
         <Box display="flex" justifyContent="center">
-          <CartWidget />
+        <Link to={"/cart"}><CartWidget /></Link>
         </Box>
       </List>
     </div>
@@ -110,7 +110,7 @@ const NavBar = () => {
                 <Button variant="text" color="inherit">
                   Contacto
                 </Button>
-                <CartWidget />
+                <Link to={"/cart"}><CartWidget /></Link>
               </Hidden>
 
               <Hidden mdUp>

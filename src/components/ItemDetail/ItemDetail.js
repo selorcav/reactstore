@@ -1,8 +1,10 @@
-import React from 'react'
-import { makeStyles, Card, CardMedia, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails, Grid, Box } from '@material-ui/core'
+import {React, useState} from 'react'
+import { makeStyles, Card, CardMedia, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails, Grid, Box, Button } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import ItemCount from '../ItemListContainer/Items/ItemCount';
+import { Link } from 'react-router-dom';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -11,11 +13,32 @@ const useStyles = makeStyles(theme => ({
   },
   textCenter: {
     textAlign: 'center'
+  },
+  marginTop: {
+    marginTop: '1em'
   }
 }))
 
 
 const ItemDetail = ({ productos }) => {
+
+  const [unidades, setUnidades] = useState(0)
+  const [show, setShow] = useState(false)
+
+  const onAdd = (cantidad) =>{
+    // console.log(cantidad)
+    setUnidades(cantidad)
+    console.log(unidades)
+    if(unidades > 0){
+      setShow(true)
+      console.log('muestra')
+    }else{
+      setShow(false)
+      console.log('no muestra')
+    }
+    
+}
+
   // console.log(productos)
   const classes = useStyles()
   return (
@@ -44,9 +67,11 @@ const ItemDetail = ({ productos }) => {
         <Typography variant="h4" gutterBottom><Typography variant="body2" color="secondary">Precio:</Typography> $ {productos.price}</Typography>
         <Box display="flex" justifyContent="center" >
           <Grid item xs={12} sm={6}>
-            <ItemCount stock={productos.stock} initial={0} onAdd={0} />
+            <ItemCount stock={productos.stock} initial={0} onAdd={onAdd} />
           </Grid>
         </Box>
+        {  show ? <Link to={"/cart"}><Button className={classes.marginTop} size="large" variant="contained" color="secondary">Terminar mi compra</Button></Link> : <></>}
+        
 
       </CardContent>
     </Card>

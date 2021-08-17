@@ -40,25 +40,24 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       setRestarDisabled(!restarDisabled)
     }
   }
+  const confirmar = (e) => {
+    if (stock > 0) {
+      onAdd(contador)
+    }
+
+  }
 
 
   return (
     <>
-      {/* <Grid className={classes.marginTop} container item xs={12} sm={6} md={3} >
-        <Card>
-          <CardContent> */}
-            {/* <Typography variant="h6" color="primary">Contador actual: </Typography> */}
-            <Box display="flex" border={2} borderRadius="borderRadius" borderColor="secondary.main" justifyContent="space-between" alignItems="center">
-              <Button className={classes.fontSizeContador} onClick={restarContador} variant="text" size="large" disabled={restarDisabled} color="secondary">-</Button>
-              <Typography className={classes.fontSizeContador} variant="h6" color="primary">{contador}</Typography>
-              <Button className={classes.fontSizeContador} onClick={sumarContador} variant="text" size="large" disabled={sumarDisabled} color="secondary">+</Button>
-            </Box>
-            <Box display="flex" justifyContent="center">
-              <Button variant="contained" color="primary" className={classes.marginTop}>Agregar al Carrito</Button>
-            </Box>
-          {/* </CardContent>
-        </Card>
-      </Grid> */}
+      <Box display="flex" border={2} borderRadius="borderRadius" borderColor="secondary.main" justifyContent="space-between" alignItems="center">
+        <Button className={classes.fontSizeContador} onClick={restarContador} variant="text" size="large" disabled={restarDisabled} color="secondary">-</Button>
+        <Typography className={classes.fontSizeContador} variant="h6" color="primary">{contador}</Typography>
+        <Button className={classes.fontSizeContador} onClick={sumarContador} variant="text" size="large" disabled={sumarDisabled} color="secondary">+</Button>
+      </Box>
+      <Box display="flex" justifyContent="center">
+        <Button variant="contained" color="primary" onClick={confirmar} className={classes.marginTop}>Agregar al Carrito</Button>
+      </Box>
     </>
   )
 }
