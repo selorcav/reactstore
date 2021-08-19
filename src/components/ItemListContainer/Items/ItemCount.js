@@ -18,11 +18,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const [contador, setContador] = useState(initial)
   const [sumarDisabled, setSumarDisabled] = useState(false)
   const [restarDisabled, setRestarDisabled] = useState(false)
+  const [carritoDisabled, setCarritoDisabled] = useState(true)
 
 
   const sumarContador = () => {
     if (stock > contador) {
       setContador(contador + 1)
+      const bloquearBoton = false
+      setCarritoDisabled(bloquearBoton)
       if (restarDisabled === true) {
         setRestarDisabled(!restarDisabled)
       }
@@ -37,6 +40,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         setSumarDisabled(!sumarDisabled)
       }
     } else if (contador === 0) {
+      const bloquearCarrito = true
+      setCarritoDisabled(bloquearCarrito)
       setRestarDisabled(!restarDisabled)
     }
   }
@@ -56,7 +61,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <Button className={classes.fontSizeContador} onClick={sumarContador} variant="text" size="large" disabled={sumarDisabled} color="secondary">+</Button>
       </Box>
       <Box display="flex" justifyContent="center">
-        <Button variant="contained" color="primary" onClick={confirmar} className={classes.marginTop}>Agregar al Carrito</Button>
+        <Button variant="contained" color="primary" disabled={carritoDisabled} onClick={confirmar} className={classes.marginTop}>Agregar al Carrito</Button>
       </Box>
     </>
   )

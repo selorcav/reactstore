@@ -1,11 +1,11 @@
-import {React, useState} from 'react'
+import {React, useState, useContext} from 'react'
 import { makeStyles, Card, CardMedia, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails, Grid, Box, Button } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import ItemCount from '../ItemListContainer/Items/ItemCount';
 import { Link } from 'react-router-dom';
 
-
+import {CartContext} from '../CartContext'
 
 const useStyles = makeStyles(theme => ({
   cardImage: {
@@ -19,27 +19,33 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-
 const ItemDetail = ({ productos }) => {
+  // console.log(productos)
+
+  const {addItem, removeItem} = useContext(CartContext)
 
   const [unidades, setUnidades] = useState(0)
   const [show, setShow] = useState(false)
 
   const onAdd = (cantidad) =>{
-    // console.log(cantidad)
     setUnidades(cantidad)
+
+    const item_to_add = {
+      item : productos,
+      quantity : cantidad
+    }
+    addItem(item_to_add)
     console.log(unidades)
-    if(unidades > 0){
+    if(item_to_add.quantity > 0){
       setShow(true)
-      console.log('muestra')
+      // console.log('muestra')
     }else{
       setShow(false)
-      console.log('no muestra')
+      // console.log('no muestra')
     }
-    
-}
+  }
 
-  // console.log(productos)
+
   const classes = useStyles()
   return (
     <Card>
@@ -70,8 +76,12 @@ const ItemDetail = ({ productos }) => {
             <ItemCount stock={productos.stock} initial={0} onAdd={onAdd} />
           </Grid>
         </Box>
+        <Box>
+          <Button variant="contained" onClick={removeItem} color="secondary">
+            Quitar del Carrito
+          </Button>
+        </Box>
         {  show ? <Link to={"/cart"}><Button className={classes.marginTop} size="large" variant="contained" color="secondary">Terminar mi compra</Button></Link> : <></>}
-        
 
       </CardContent>
     </Card>
