@@ -27,6 +27,7 @@ const ItemDetail = ({ productos }) => {
   const [unidades, setUnidades] = useState(0)
   const [show, setShow] = useState(false)
 
+  console.log(unidades)
   const onAdd = (cantidad) =>{
     setUnidades(cantidad)
 
@@ -35,7 +36,7 @@ const ItemDetail = ({ productos }) => {
       quantity : cantidad
     }
     addItem(item_to_add)
-    console.log(unidades)
+    // console.log(unidades)
     if(item_to_add.quantity > 0){
       setShow(true)
       // console.log('muestra')
