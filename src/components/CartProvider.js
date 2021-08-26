@@ -5,17 +5,15 @@ const CartProvider = ({ children }) => {
 
   const [cart, setCart] = useState([])
 
-  const addItem = (item) => {
-    // const new_cart = [...cart]
-    // new_cart.push(item)
-    // setCart(new_cart)
-    
+
+  const addItem = (item, cant) => {
+
     const isInCart = cart.find((producto) => producto.item.item.id === item.item.id)
     if (!isInCart) {
-      console.log(item.item.id)
-        setCart([...cart, { item }])
-      } else {
-        
+      // console.log(item.item.id)
+      setCart([...cart, { item }])
+    } else {
+      
     }
   }
 

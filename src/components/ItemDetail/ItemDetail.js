@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 const ItemDetail = ({ productos }) => {
   // console.log(productos)
 
-  const {addItem, removeItem} = useContext(CartContext)
+  const {cart, addItem} = useContext(CartContext)
 
   const [unidades, setUnidades] = useState(0)
   const [show, setShow] = useState(false)
@@ -74,14 +74,10 @@ const ItemDetail = ({ productos }) => {
         <Typography variant="h4" gutterBottom><Typography variant="body2" color="secondary">Precio:</Typography> $ {productos.price}</Typography>
         <Box display="flex" justifyContent="center" >
           <Grid item xs={12} sm={6}>
-            <ItemCount stock={productos.stock} initial={0} onAdd={onAdd} />
+            <ItemCount producto={productos} stock={productos.stock} initial={0} onAdd={onAdd} />
           </Grid>
         </Box>
-        <Box>
-          <Button variant="contained" onClick={removeItem} color="secondary">
-            Quitar del Carrito
-          </Button>
-        </Box>
+
         {  show ? <Link to={"/cart"}><Button className={classes.marginTop} size="large" variant="contained" color="secondary">Terminar mi compra</Button></Link> : <></>}
 
       </CardContent>

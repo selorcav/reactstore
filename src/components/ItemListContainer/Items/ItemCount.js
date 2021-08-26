@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({producto, stock, initial, addItem, onAdd }) => {
   const classes = useStyles()
 
   const [contador, setContador] = useState(initial)
@@ -61,7 +61,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <Button className={classes.fontSizeContador} onClick={sumarContador} variant="text" size="large" disabled={sumarDisabled} color="secondary">+</Button>
       </Box>
       <Box display="flex" justifyContent="center">
-        <Button variant="contained" color="primary" disabled={carritoDisabled} onClick={confirmar} className={classes.marginTop}>Agregar al Carrito</Button>
+        <Button variant="contained" color="primary" disabled={carritoDisabled} onClick={() => { addItem(producto, contador); onAdd()}} className={classes.marginTop}>Agregar al Carrito</Button>
       </Box>
     </>
   )
